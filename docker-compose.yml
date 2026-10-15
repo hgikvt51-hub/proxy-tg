@@ -1,0 +1,9 @@
+services:
+  mtproxy:
+    build: .
+    container_name: telegram-mtproxy
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${PROXY_PORT:-443}:${PROXY_PORT:-443}/tcp"
